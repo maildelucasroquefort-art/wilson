@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wilson Tennis — Business Model GRP interactif</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#172335;background:#f6f8fb}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1160px;margin:auto;padding:38px 20px 52px}header{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}h1{margin:0;font-size:clamp(25px,4vw,38px);letter-spacing:-.04em}p{line-height:1.55}.muted{color:#667487}.tag{background:#fff;border:1px solid #dfe5ed;padding:9px 12px;border-radius:20px;font-size:12px;font-weight:700}main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.8fr);gap:18px;margin-top:25px}.panel{border:1px solid #e1e7f0;border-radius:20px;background:#fff;padding:23px;box-shadow:0 10px 36px #22334b0a}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}label{font-weight:700;font-size:14px}select,button{background:#fff;color:#172335;border:1px solid #cbd5e1;border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer}button:hover,select:hover{border-color:#64748b}button:focus-visible,select:focus-visible,.node:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}.visual{width:100%;max-height:650px;display:block;margin:5px auto}svg .edge{transition:opacity .2s,stroke-width .2s}svg .node{cursor:pointer;outline:none}svg .node circle{transition:r .2s,stroke-width .2s}svg text{pointer-events:none}.legend{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;font-size:13px}.legend span{display:flex;align-items:center;gap:7px}.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.g{background:#a9792c}.r{background:#277cba}.p{background:#8055a2}.subtitle{font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.06em;color:#68768a;margin-bottom:5px}.detailtitle{font-size:22px;font-weight:800;margin:3px 0}.links{padding:0;list-style:none}.links li{padding:12px 0;border-bottom:1px solid #e7ecf2}.links strong{font-size:13px}.links div{font-size:13px;line-height:1.5;margin-top:4px;color:#5c6b7e}.hint{background:#f2f6fb;padding:12px 14px;border-radius:12px;font-size:13px;color:#46566d}.foot{margin-top:18px;font-size:12px;color:#65748a}.pill{display:inline-block;font-size:11px;border-radius:6px;padding:3px 6px;background:#edf2f8;margin-right:6px;font-weight:800}@media(max-width:780px){main{grid-template-columns:1fr}.panel{padding:15px}.wrap{padding:24px 12px}.visual{min-height:320px}}
+</style>
+</head>
+<body><div class="wrap"><header><div><div class="subtitle">GRP LAB • GÉNÉRATION · RÉMUNÉRATION · PARTAGE</div><h1>Wilson Tennis — modèle GRP</h1><p class="muted">Explore les interactions entre les neuf composantes du modèle.</p></div><span class="tag">9 composantes · 36 connexions possibles</span></header>
+<main><section class="panel"><div class="toolbar"><label for="choose">Composante à explorer</label><select id="choose"><option value="all">Toutes les composantes (36 liens)</option></select></div><svg id="graph" class="visual" viewBox="0 0 600 600" role="img" aria-label="Schéma interactif des neuf composantes GRP et de leurs interconnexions"></svg><div class="legend"><span><i class="dot g"></i> Génération</span><span><i class="dot r"></i> Rémunération</span><span><i class="dot p"></i> Partage</span></div><p class="foot">Clique sur une composante pour isoler ses huit liens. Clique à nouveau pour tout afficher. Les liens expriment des interactions à analyser, pas des causalités toutes démontrées.</p></section><aside class="panel" aria-live="polite"><div class="subtitle">Analyse Wilson Tennis</div><div class="detailtitle" id="selectedTitle">Vision systémique</div><p class="muted" id="selectedInfo">Chaque composante peut interagir avec les huit autres, soit 36 relations bidirectionnelles possibles.</p><div class="hint" id="count">Toutes les 36 connexions sont affichées.</div><ul class="links" id="links"></ul></aside></main><p class="foot">Cadre méthodologique : <a href="https://grp-lab.com/ressource/posters/" target="_blank" rel="noopener">GRP Lab — posters officiels</a>. Démonstration pédagogique sur Wilson Tennis. Les formulations illustrent des interactions potentielles : elles ne prétendent pas documenter les 36 relations par des données internes de l'entreprise.</p></div>
+<script>
+const nodes=[
+{id:'G1',name:'Porteur(s)',short:['Porteur(s)'],group:'G',color:'#a9792c',desc:'Wilson Sporting Goods, au sein du groupe Amer Sports, et ses équipes pilotent les orientations de la marque.'},
+{id:'G2',name:'Proposition de valeur',short:['Proposition','de valeur'],group:'G',color:'#a9792c',desc:'Offre de raquettes, balles, cordages, chaussures, vêtements et accessoires de tennis.'},
+{id:'G3',name:'Fabrication de la valeur',short:['Fabrication','de valeur'],group:'G',color:'#a9792c',desc:'Conception, développement, approvisionnement, production, distribution et commercialisation.'},
+{id:'R1',name:'Sources des revenus',short:['Sources','des revenus'],group:'R',color:'#277cba',desc:'Ventes directes et par l’intermédiaire de distributeurs.'},
+{id:'R2',name:'Volume des revenus',short:['Volume','des revenus'],group:'R',color:'#277cba',desc:'Ventes et chiffre d’affaires attribuables aux équipements tennis ; montants précis non isolés publiquement.'},
+{id:'R3',name:'Performances',short:['Performances'],group:'R',color:'#277cba',desc:'Résultats commerciaux, rentabilité et indicateurs non financiers comme la notoriété.'},
+{id:'P1',name:'Parties prenantes',short:['Parties','prenantes'],group:'P',color:'#8055a2',desc:'Joueurs, clients, fournisseurs, distributeurs, collaborateurs et partenaires sportifs.'},
+{id:'P2',name:'Conventions',short:['Conventions'],group:'P',color:'#8055a2',desc:'Engagements contractuels, règles sectorielles, normes de qualité et attentes communes.'},
+{id:'P3',name:'Écosystème',short:['Écosystème'],group:'P',color:'#8055a2',desc:'Clubs, compétitions, autres marques, fédérations et évolution des pratiques du tennis.'}
+];
+const explanations={
+'G1-G2':'Les équipes dirigeantes arbitrent le positionnement et les gammes proposées.',
+'G1-G3':'Les orientations stratégiques guident les moyens alloués au développement et à la fabrication.',
+'G1-R1':'Le choix des canaux de commercialisation dépend des décisions de l’entreprise.',
+'G1-R2':'Les objectifs de vente peuvent influer sur les décisions de développement.',
+'G1-R3':'Les résultats observés peuvent orienter les décisions des responsables.',
+'G1-P1':'Les dirigeants nouent et entretiennent des relations avec les parties prenantes.',
+'G1-P2':'Les engagements contractuels encadrent les décisions et partenariats.',
+'G1-P3':'Les orientations de Wilson tiennent compte des évolutions du marché du tennis.',
+'G2-G3':'La promesse de performance suppose des choix de conception et de fabrication adaptés.',
+'G2-R1':'L’offre de produits commercialisables constitue une base des ventes.',
+'G2-R2':'L’intérêt des joueurs pour les produits peut faire varier les volumes vendus.',
+'G2-R3':'L’adéquation entre produits et besoins contribue aux résultats commerciaux.',
+'G2-P1':'Les utilisateurs et les partenaires contribuent aux attentes autour des produits.',
+'G2-P2':'Les normes techniques et les engagements contractuels encadrent certaines offres.',
+'G2-P3':'Les pratiques et tendances du tennis influencent les attentes adressées aux produits.',
+'G3-R1':'Les produits effectivement fabriqués et distribués peuvent générer des ventes.',
+'G3-R2':'La capacité à fournir les produits peut conditionner les quantités vendues.',
+'G3-R3':'Les coûts et la qualité des opérations influencent la performance.',
+'G3-P1':'Fournisseurs, collaborateurs et distributeurs contribuent à la chaîne de valeur.',
+'G3-P2':'La production et la commercialisation doivent respecter des obligations applicables.',
+'G3-P3':'L’environnement industriel et commercial façonne les choix opérationnels.',
+'R1-R2':'Les différentes sources de vente contribuent au volume global des revenus.',
+'R1-R3':'Le mix des canaux de vente peut influencer les résultats économiques.',
+'R1-P1':'La distribution associe Wilson à ses clients et revendeurs.',
+'R1-P2':'Les modalités contractuelles encadrent les ventes et relations commerciales.',
+'R1-P3':'L’évolution des circuits de vente modifie les possibilités de rémunération.',
+'R2-R3':'Les revenus contribuent aux résultats, qui dépendent aussi des coûts.',
+'R2-P1':'Les ventes dépendent notamment de la demande et des relations de distribution.',
+'R2-P2':'Les conditions commerciales peuvent influencer prix et volumes.',
+'R2-P3':'Le contexte de marché peut favoriser ou freiner les quantités vendues.',
+'R3-P1':'La performance peut influencer les relations avec investisseurs et partenaires.',
+'R3-P2':'Le respect des engagements et des normes peut influer sur les résultats.',
+'R3-P3':'Les résultats dépendent en partie de la dynamique du marché du tennis.',
+'P1-P2':'Les accords structurent les relations entre Wilson et ses partenaires.',
+'P1-P3':'Les acteurs du tennis constituent l’écosystème dans lequel Wilson évolue.',
+'P2-P3':'Les usages, normes et règles du secteur encadrent l’activité des acteurs.'
+};
+const svg=document.getElementById('graph'),select=document.getElementById('choose'),links=document.getElementById('links');let active='all';const ns='http://www.w3.org/2000/svg';
+function svgEl(tag,attrs={}){const el=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));return el}
+nodes.forEach((n,i)=>{let angle=(i*360/9-90)*Math.PI/180;n.x=300+225*Math.cos(angle);n.y=300+225*Math.sin(angle);let opt=document.createElement('option');opt.value=n.id;opt.textContent=n.id+' — '+n.name;select.append(opt)});
+const pairs=nodes.flatMap((a,i)=>nodes.slice(i+1).map(b=>({a,b,key:[a.id,b.id].sort().join('-')})));
+function render(){svg.replaceChildren();const circle=svgEl('circle',{cx:300,cy:300,r:152,fill:'none',stroke:'#e9eef4','stroke-dasharray':'4 10'});svg.append(circle);
+pairs.forEach(({a,b})=>{const enabled=active==='all'||a.id===active||b.id===active;svg.append(svgEl('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:active==='all'?'#8c9aac':'#2563eb','stroke-width':active==='all'?1.5:enabled?3:0.6,opacity:active==='all'?.35:enabled?.80:.055,class:'edge'}))});
+nodes.forEach(n=>{let focused=active==='all'||active===n.id;let g=svgEl('g',{class:'node',tabindex:'0',role:'button','aria-label':n.id+' '+n.name+' : afficher ses connexions','aria-pressed':active===n.id?'true':'false'});g.style.opacity=focused||active==='all'?'1':'.87';let circ=svgEl('circle',{cx:n.x,cy:n.y,r:active===n.id?48:45,fill:n.color,stroke:active===n.id?'#172335':'white','stroke-width':active===n.id?4:2});g.append(circ);let text=svgEl('text',{x:n.x,y:n.y-13,fill:'white','font-size':16,'font-weight':800,'text-anchor':'middle'});text.textContent=n.id;g.append(text);n.short.forEach((part,i)=>{let t=svgEl('text',{x:n.x,y:n.y+6+i*13,fill:'white','font-size':10.4,'font-weight':600,'text-anchor':'middle'});t.textContent=part;g.append(t)});let toggle=()=>{active=active===n.id?'all':n.id;select.value=active;render()};g.addEventListener('click',toggle);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});svg.append(g)});
+const selected=nodes.find(n=>n.id===active);document.getElementById('selectedTitle').textContent=selected?selected.id+' — '+selected.name:'Vision systémique';document.getElementById('selectedInfo').textContent=selected?selected.desc:'Chaque composante peut interagir avec les huit autres, soit 36 relations bidirectionnelles possibles.';document.getElementById('count').textContent=selected?'8 connexions possibles avec les autres composantes':'Toutes les 36 connexions sont affichées.';links.replaceChildren();if(!selected){const p=document.createElement('li');p.textContent='Sélectionne une composante sur le schéma ou dans la liste pour lire les interactions illustrées.';links.append(p)}else{nodes.filter(n=>n.id!==active).forEach(other=>{const key=[active,other.id].sort().join('-');const li=document.createElement('li'),title=document.createElement('strong'),detail=document.createElement('div'),pill=document.createElement('span');pill.className='pill';pill.textContent=other.id;title.append(pill,document.createTextNode(other.name));detail.textContent=explanations[key]||'Interaction à analyser.';li.append(title,detail);links.append(li)})}}
+select.addEventListener('change',e=>{active=e.target.value;render()});render();
+</script></body></html>
